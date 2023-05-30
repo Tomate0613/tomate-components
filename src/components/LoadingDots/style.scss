@@ -1,0 +1,20 @@
+.dot {
+  animation: alternateY 0.6s ease-in-out infinite;
+  animation-direction: alternate;
+}
+
+.dot-1 {
+  animation-delay: -0.4s;
+}
+.dot-2 {
+  animation-delay: -0.2s;
+}
+
+@keyframes alternateY {
+  from {
+    transform: translateY(1px);
+  }
+  to {
+    transform: translateY(-1px);
+  }
+}

@@ -1,0 +1,72 @@
+.btn-option-menu,
+.option-menu {
+  position: absolute;
+}
+
+.btn-option-menu,
+.option-menu.expanded {
+  right: 0.25rem;
+  top: 0.25rem;
+}
+
+.option-menu {
+  display: flex;
+  gap: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.option-menu:not(.expanded) {
+  display: flex;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0.25rem 0;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0004;
+  backdrop-filter: blur(16px);
+  border-radius: 0.5rem;
+  z-index: 1;
+}
+
+.option-menu.expanded,
+.option-menu.active {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.btn-option-menu:active ~ .option-menu {
+  pointer-events: none;
+}
+
+.btn-option-menu,
+.option-menu.expanded .btn-option-item {
+  padding: 0.25rem;
+}
+
+.option-menu > .btn-option-item span {
+  display: none;
+}
+
+.option-menu .options {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.25rem;
+  gap: 0.25rem;
+}
+
+.option-menu .options .btn-option-item {
+  justify-content: flex-start;
+}
+
+.options .btn-info {
+  border-style: dashed;
+  opacity: 0.5;
+  order: 1;
+}

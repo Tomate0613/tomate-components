@@ -1,0 +1,39 @@
+input[type='range'].slider {
+  appearance: none;
+  height: 0.25rem;
+  width: 100%;
+  margin-top: 0.5rem;
+  background-color: var(--color-ui-alt);
+  border-radius: 0.25rem;
+  transition: background-color 0.2s;
+  cursor: w-resize;
+}
+
+input[type='range'].slider::-webkit-slider-runnable-track {
+  height: 0.75rem;
+  margin-top: -1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type='range'].slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 0.5rem;
+  height: 1.25rem;
+  border-radius: 0.5rem;
+  transform: translateY(-0.25rem);
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-info);
+  box-shadow: 0 0 4px #0008;
+  transition: box-shadow 0.2s;
+}
+
+input[type='range'].slider:focus-visible {
+  outline: none;
+}
+
+input[type='range'].slider:is(:hover, :focus-visible)::-webkit-slider-thumb {
+  box-shadow: 0 0 4px #0008, 0 0 0 2px var(--color-info-alt);
+}

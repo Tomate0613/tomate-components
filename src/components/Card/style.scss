@@ -1,0 +1,146 @@
+.card {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+  border: 1px solid var(--color-ui-layer);
+  border-radius: 0.5rem;
+  background-color: var(--color-ui-layer);
+  box-shadow: 2px 2px 4px #0004;
+  overflow: clip;
+
+  .t-title {
+    margin-bottom: 0.25rem;
+  }
+}
+
+.card-ambient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.5) blur(12px) brightness(0.25);
+  opacity: .5;
+  z-index: -1;
+}
+
+#account-page .card-ambient {
+  display: none;
+}
+
+.card-body {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.25rem;
+}
+
+.card-icon-container {
+  position: relative;
+  height: min-content;
+}
+
+.card-image {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 4px #0008;
+}
+
+.card-info {
+  width: 100%;
+  justify-content: flex-start;
+  max-width: calc(100% - 4.5rem);
+}
+
+.card-info > * {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modpack-icon-list {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.125rem;
+}
+
+.modpack-icon-list img {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.125rem;
+}
+
+.btn .modpack-icon-list {
+  margin-top: 0;
+}
+
+.card-controls {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-controls:not(
+    :empty,
+    :has(.option-menu:only-child),
+    :has(.btn-option-menu:first-child + .option-menu)
+  ) {
+  padding: 0.25rem;
+  border-top: 1px solid var(--color-ui-alt);
+}
+
+.card-controls:has(.btn-option-menu:not(:first-child)) .btn-option-menu {
+  position: initial;
+  padding: 0.5rem;
+}
+
+.card-controls > :first-child:not(button) {
+  padding-left: 0.25rem;
+}
+
+.shimmer {
+  height: 1em;
+  margin: calc(calc(1rem - 1em) / 2) 0;
+  color: transparent;
+  background: linear-gradient(
+      -60deg,
+      transparent 30%,
+      var(--color-ui-layer),
+      transparent 70%
+    )
+    right/500% 100%;
+  background-color: var(--color-ui-alt);
+  background-repeat: no-repeat;
+  border-radius: 0.25rem;
+  animation: shimmer 1s infinite;
+}
+
+.card-info :has(.shimmer) {
+  width: 100%;
+}
+
+a:has(.shimmer) {
+  text-decoration: none !important;
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+.card-icon-container .shimmer {
+  width: 4rem;
+  height: 4rem;
+}
+
+.card-icon-container:has(.shimmer) .card-image {
+  display: none;
+}
+
+// .mod:has(.shimmer) .option-menu {
+//   opacity: 0;
+// }
+
+@keyframes shimmer {
+  to {
+    background-position-x: left;
+  }
+}

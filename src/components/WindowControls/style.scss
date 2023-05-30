@@ -1,0 +1,50 @@
+.window-controls {
+  display: flex;
+  position: fixed;
+  top: 0.75rem;
+  right: 0.5rem;
+  gap: 1px;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.window-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 2rem;
+  color: white;
+  font-family: 'FluentIcons';
+  font-size: 10px;
+  font-weight: lighter;
+}
+
+.unfocused .window-button:not(:hover) {
+  opacity: .5;
+}
+
+.window-button:hover {
+  background-color: var(--color-ui-alt);
+}
+
+.window-button.close:hover {
+  background-color: #c42b1c;
+}
+
+.window-button.minimize::before {
+  content: '\e921';
+}
+
+.window-button.maximize::before {
+  content: '\e922';
+}
+
+.window-button.restore::before {
+  content: '\e923';
+}
+
+.window-button.close::before {
+  content: '\e8bb';
+}
