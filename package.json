@@ -21,7 +21,7 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepare": "tsc"
+    "prepare_": "tsc"
   },
   "eslintConfig": {
     "extends": [
