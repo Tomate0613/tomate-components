@@ -5,7 +5,7 @@ interface WindowControlsProps {
   isMaximized: boolean;
 
   onMinimize: () => void;
-  onMaximize: () => void;
+  onToggleMaximize: () => void;
   onClose: () => void;
 }
 
@@ -14,7 +14,7 @@ const WindowControls = ({
   isMaximized,
 
   onMinimize,
-  onMaximize,
+  onToggleMaximize: onMaximize,
   onClose,
 }: WindowControlsProps) => {
   return (

@@ -1,0 +1,13 @@
+.grid {
+  position: relative;
+  display: grid;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  overflow-y: auto;
+
+  &:empty {
+    height: 100%;
+  }
+}

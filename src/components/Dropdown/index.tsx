@@ -1,24 +1,30 @@
 import { mdiChevronDown } from '@mdi/js';
 import Icon from '@mdi/react';
-import { ChangeEvent } from 'react';
 import './style.scss';
+import useInput from '../../shared/useInput';
+import { InputProps } from '../../shared/inputProps';
 
-export interface DropdownProps {
-  defaultValue?: string;
+export interface DropdownProps extends InputProps<HTMLSelectElement, string> {
   options: string[];
-  onChange: (value: string, event: ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const Dropdown = ({ defaultValue, options, onChange }: DropdownProps) => {
+const Dropdown = (props: DropdownProps) => {
+  const { value, className, onChange } = useInput(
+    props,
+    'dropdown',
+    props.options[0]
+  );
+
   return (
-    <div className="dropdown">
+    <div className={className}>
       <select
         onChange={async (event) => {
           onChange(event.target.value, event);
         }}
-        defaultValue={defaultValue}
+        value={value}
+        disabled={props.disabled}
       >
-        {options.map((option) => {
+        {props.options.map((option) => {
           return (
             <option key={option} value={option}>
               {option}

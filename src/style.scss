@@ -304,3 +304,8 @@ main {
     opacity: 0;
   }
 }
+
+.invalid-input {
+  border-color: var(--color-error) !important;
+  box-shadow: 0px 0px 0px 2px var(--color-error-alt) !important;
+}

@@ -1,0 +1,120 @@
+#sidebar {
+  display: flex;
+  position: relative;
+  min-width: 240px;
+  padding: 0.5rem;
+  padding-right: 1rem;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: height 0.2s;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1rem;
+    background-color: var(--color-accent);
+    border-radius: 0.25rem;
+  }
+
+  &::before {
+    top: 1.25rem;
+    transition: top 0s 0.2s, width 0.2s;
+  }
+
+  &::after {
+    bottom: 1.25rem;
+    transition: bottom 0s 0.2s, width 0.2s;
+  }
+
+  &:not(:has(.nav-bottom.active))::before {
+    width: 3px;
+    transition: top 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), width 0.2s;
+  }
+
+  &:has(.nav-bottom.active)::after {
+    width: 3px;
+    transition: bottom 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), width 0.2s;
+  }
+
+  @for $i from 1 through 4 {
+    &:has(:nth-child(#{$i}).active)::before,
+    &:has(.nav-bottom.active):has(
+        > :nth-child(#{$i}):is(:hover, :focus)
+      )::before {
+      top: calc(1.25rem + calc(2.75rem * calc($i - 1)));
+    }
+
+    &:has(.nav-bottom.active):has(
+        > :nth-child(#{$i}):is(:hover, :focus)
+      )::before {
+      transition: width 0.2s;
+    }
+  }
+
+  @for $i from 5 through 6 {
+    &:has(:nth-child(#{$i}).active)::after,
+    &:not(:has(.nav-bottom.active)):has(
+        > :nth-child(#{$i}):is(:hover, :focus)
+      )::after {
+      bottom: calc(1.25rem + calc(2.75rem * calc(6 - $i)));
+    }
+
+    &:not(:has(.nav-bottom.active)):has(
+        > :nth-child(#{$i}):is(:hover, :focus)
+      )::after {
+      transition: width 0.2s;
+    }
+  }
+
+  & a {
+    display: flex;
+    position: relative;
+    padding: 0.75rem;
+    padding-left: 0.75rem;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    border-radius: 0.25rem;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  & a:is(:hover, :focus-visible, .active) {
+    color: var(--color-text);
+    background-color: var(--color-ui-layer);
+    outline: none;
+  }
+
+  & a svg {
+    min-width: 1rem;
+    width: 1rem;
+  }
+}
+
+:not(.nav-bottom) + .nav-bottom {
+  margin-top: auto;
+}
+
+.nav-settings.active svg {
+  transform: rotate(120deg);
+  transition: transform 0.2s;
+}
+
+@media screen and (max-width: 640px) {
+  #sidebar {
+    min-width: 4rem;
+    max-width: 4rem;
+  }
+
+  #sidebar a {
+    padding-left: 0.75rem;
+    text-indent: 100%;
+  }
+
+  :root {
+    --sidebar-width: 4rem;
+  }
+}

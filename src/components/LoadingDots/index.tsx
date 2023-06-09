@@ -2,7 +2,7 @@ import './style.scss';
 
 const LoadingDots = () => {
   return (
-    <svg>
+    <svg aria-hidden="true" className="loading-dots" aria-label="Loading">
       <circle
         className="dot dot-1"
         cx="4"

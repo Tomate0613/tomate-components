@@ -1,51 +1,30 @@
-import { useState } from 'react';
 import './style.scss';
+import { InputProps } from '../../shared/inputProps';
+import useInput from '../../shared/useInput';
 
-export interface TextInputProps {
-  className?: string;
-  defaultValue?: string;
-  onChange: (value: string, valid?: boolean) => void;
+export interface TextInputProps extends InputProps<HTMLInputElement, string> {
   onBlur?: () => void;
-  validate?: (value: string) => boolean;
   id?: string;
   placeholder?: string;
   search?: boolean;
 }
 
-const TextInput = ({
-  className,
-  defaultValue,
-  onChange,
-  onBlur,
-  id,
-  placeholder,
-  search,
-  validate,
-}: TextInputProps) => {
-  const [isValid, setIsValid] = useState(
-    validate ? validate(defaultValue ?? '') : true
-  );
+const TextInput = (props: TextInputProps) => {
+  const { value, className, onChange } = useInput(props, 'text-input', '');
 
   return (
     <input
-      type={search ? 'search' : 'text'}
-      className={`text-input ${className} ${!isValid ? 'invalid-input' : ''}`}
-      defaultValue={defaultValue}
+      type={props.search ? 'search' : 'text'}
+      className={className}
+      value={value}
       onChange={(event) => {
         const { value } = event.target;
 
-        if (validate) {
-          const valid = validate(value);
-          setIsValid(valid);
-
-          onChange(value, valid);
-          return;
-        }
-        onChange(value);
+        onChange(value, event);
       }}
-      onBlur={onBlur}
-      id={id}
-      placeholder={placeholder}
+      onBlur={props.onBlur}
+      id={props.id}
+      placeholder={props.placeholder}
     />
   );
 };

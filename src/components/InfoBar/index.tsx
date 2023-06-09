@@ -12,7 +12,7 @@ type InfoBarProps = {
 
 const InfoBar = ({ title, content, icon }: InfoBarProps) => {
   return (
-    <div className="info-bar">
+    <div className="info-bar" role="alertdialog">
       <Icon className="info-bar-icon" path={icon!} size="24" />
       <div className="info-bar-content flex-column">
         <div className="t-title">{title}</div>

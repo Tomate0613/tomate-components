@@ -1,6 +1,6 @@
 .window-controls {
   display: flex;
-  position: fixed;
+  position: absolute;
   top: 0.75rem;
   right: 0.5rem;
   gap: 1px;
@@ -22,7 +22,7 @@
 }
 
 .unfocused .window-button:not(:hover) {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .window-button:hover {

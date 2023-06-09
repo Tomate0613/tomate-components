@@ -1,23 +1,21 @@
+import { InputProps } from '../../shared/inputProps';
+import useInput from '../../shared/useInput';
 import './style.scss';
 
-export interface SwitchProps {
-  onChange: (value: boolean) => void;
-  defaultValue?: boolean;
-  value?: boolean;
-  disabled?: boolean;
-}
+export interface SwitchProps extends InputProps<HTMLInputElement, boolean> {}
 
-const Switch = ({ onChange, defaultValue, value, disabled }: SwitchProps) => {
+const Switch = (props: SwitchProps) => {
+  const { value, className, onChange } = useInput(props, 'switch', false);
+
   return (
     <input
-      className="switch"
-      defaultChecked={defaultValue}
+      className={className}
       checked={value}
       type="checkbox"
       onChange={(event) => {
-        onChange(event.target.checked);
+        onChange(event.target.checked, event);
       }}
-      disabled={disabled}
+      disabled={props.disabled}
     />
   );
 };

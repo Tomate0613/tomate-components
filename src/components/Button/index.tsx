@@ -1,12 +1,13 @@
-import { MouseEventHandler, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import './style.scss';
+import { MouseEventHandler } from '../../shared/eventHandlers';
 
 export interface ButtonProps {
   children: ReactNode;
   className?: string;
   disabled?: boolean;
   title?: string;
-  onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   small?: boolean;
   custom?: boolean;
   info?: boolean;

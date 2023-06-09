@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.header-title {
+  display: flex;
+  width: calc(100% - 137px);
+  gap: 0.5rem;
+}
+
+.header-title-drag-area {
+  padding-top: 0.5rem;
+  width: 100%;
+  -webkit-app-region: drag;
+
+  .header-title-text {
+    margin: 0;
+    font-size: 1.75rem;
+    line-height: 2.5rem;
+    text-transform: uppercase;
+  }
+
+  &.center .header-title-text {
+    text-align: center;
+    text-indent: 137px;
+  }
+
+  &.center.back .header-title-text {
+    text-indent: calc(-3rem + 137px);
+  }
+}
+
+.header-content {
+  padding-right: 0.5rem;
+  align-items: center;
+}
+
+.header-content .btn:not(.small),
+.header-content .text-input {
+  margin: 0.1875rem 0;
+}

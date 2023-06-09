@@ -22,8 +22,6 @@ const Image = ({ src, alt, title, className, randomImage }: ImageProps) => {
     ? randomImages[randomImage % randomImages.length]
     : missingIcon;
 
-  console.log(fallback);
-
   return (
     <img
       alt={alt}

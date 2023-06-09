@@ -2,11 +2,9 @@ import { mdiClose, mdiMagnify } from '@mdi/js';
 import Icon from '@mdi/react';
 import TextInput from '.';
 import './style.scss';
+import { InputProps } from '../../shared/inputProps';
 
-export interface SearchInputProps {
-  className?: string;
-  defaultValue?: string;
-  onChange: (value: string) => void;
+export interface SearchInputProps extends InputProps<HTMLInputElement, string> {
   onBlur?: () => void;
   id?: string;
   placeholder?: string;
@@ -27,7 +25,7 @@ const SearchInput = ({
   return (
     <div className="search-input-wrapper">
       <TextInput
-        className={`${className}${clp ? 'input-search-clp' : ''}`}
+        className={`${className}${clp ? ' input-search-clp' : ''}`}
         defaultValue={defaultValue}
         onChange={onChange}
         onBlur={onBlur}

@@ -1,50 +1,31 @@
-import { useState } from 'react';
 import './style.scss';
+import { InputProps } from '../../shared/inputProps';
+import useInput from '../../shared/useInput';
 
-export interface NumberInputProps {
-  className?: string;
-  defaultValue?: number;
-  onChange: (value: number, valid?: boolean) => void;
+export interface NumberInputProps extends InputProps<HTMLInputElement, number> {
   onBlur?: () => void;
-  validate?: (value: number) => boolean;
   id?: string;
   placeholder?: string;
 }
 
-const NumberInput = ({
-  className,
-  defaultValue,
-  onChange,
-  onBlur,
-  id,
-  placeholder,
-  validate,
-}: NumberInputProps) => {
-  const [isValid, setIsValid] = useState(
-    validate ? validate(defaultValue ?? 0) : true
-  );
+const NumberInput = (props: NumberInputProps) => {
+  const { value, className, onChange } = useInput(props, 'number-input', 0);
 
   return (
     <input
       type="number"
-      className={`number-input ${className} ${!isValid ? 'invalid-input' : ''}`}
-      defaultValue={defaultValue}
-      onChange={(event) => {
+      className={className}
+      value={value}
+      onChange={async (event) => {
         const { value: valueRaw } = event.target;
         const value = parseInt(valueRaw, 10);
 
-        if (validate) {
-          const valid = validate(value);
-          setIsValid(valid);
-
-          onChange(value, valid);
-          return;
-        }
-        onChange(value);
+        onChange(value, event);
       }}
-      onBlur={onBlur}
-      id={id}
-      placeholder={placeholder}
+      onBlur={props.onBlur}
+      id={props.id}
+      placeholder={props.placeholder}
+      disabled={props.disabled}
     />
   );
 };
