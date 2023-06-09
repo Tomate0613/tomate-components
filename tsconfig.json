@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "incremental": true,
+    "target": "es2021",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "declaration": true,
+    "declarationMap": true,
+    "strict": true,
+    "pretty": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
@@ -16,8 +20,10 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "@tc/*": ["./src/components/*"]
-    }
+      "@tc/*": ["./src/components/*"],
+      "assets/*": ["./src/assets/*"]
+    },
+    "outDir": "dist"
   },
-  "include": ["src"]
+  "include": ["src/components", "src/index.ts"]
 }

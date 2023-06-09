@@ -1,9 +1,4 @@
 import { useState } from 'react';
-import missingIcon from 'assets/images/missing.png';
-import bannerImage from 'assets/images/random/banner.webp';
-import cat1Image from 'assets/images/random/cat1.webp';
-import cat2Image from 'assets/images/random/cat2.webp';
-import cat3Image from 'assets/images/random/cat3.webp';
 
 export interface ImageProps {
   src: string | undefined;
@@ -14,13 +9,18 @@ export interface ImageProps {
   randomImage?: number;
 }
 
-const randomImages = [bannerImage, cat1Image, cat2Image, cat3Image];
+declare global {
+  interface Window {
+    randomImages: string[];
+    missingIcon: string;
+  }
+}
 
 const Image = ({ src, alt, title, className, randomImage }: ImageProps) => {
   const [error, setError] = useState(src === undefined);
   const fallback = randomImage
-    ? randomImages[randomImage % randomImages.length]
-    : missingIcon;
+    ? window.randomImages[randomImage % window.randomImages.length]
+    : window.missingIcon;
 
   return (
     <img
