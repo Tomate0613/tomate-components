@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import Slider from '../components/Slider';
+import Slider from '@tc/Slider';
 
 export default {
   title: 'Components/Slider',

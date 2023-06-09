@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import InfoBar from '../components/InfoBar';
+import InfoBar from '@tc/InfoBar';
 
 export default {
   title: 'Components/InfoBar',

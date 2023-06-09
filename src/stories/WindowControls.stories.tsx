@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import WindowControls from '../components/WindowControls';
+import WindowControls from '@tc/WindowControls';
 
 export default {
   title: 'Components/WindowControls',

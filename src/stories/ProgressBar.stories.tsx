@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import ProgressBar from '../components/ProgressBar';
+import ProgressBar from '@tc/ProgressBar';
 
 export default {
   title: 'Components/ProgressBar',

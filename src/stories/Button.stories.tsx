@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import Button from '../components/Button';
+import Button from '@tc/Button';
 
 interface StoryButtonProps {
   text: string;

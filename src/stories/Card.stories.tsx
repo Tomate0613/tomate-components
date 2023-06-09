@@ -1,9 +1,9 @@
 import { Meta } from '@storybook/react';
-import Card from '../components/Card';
 import { OptionMenu } from './OptionMenu.stories';
 import { OptionMenuItem } from './OptionMenuItem.stories';
 import { mdiTestTube } from '@mdi/js';
-import Button from '../components/Button';
+import Button from '@tc/Button';
+import Card from '@tc/Card';
 
 export default {
   title: 'Components/Card',

@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import LoadingDots from '../components/LoadingDots';
+import LoadingDots from '@tc/LoadingDots';
 
 export default {
   title: 'Components/LoadingDots',

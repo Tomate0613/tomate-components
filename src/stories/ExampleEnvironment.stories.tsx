@@ -1,15 +1,15 @@
 import { Meta } from '@storybook/react';
 import { WindowControls } from './WindowControls.stories';
 import { useState } from 'react';
-import Header from '../components/Header';
-import Card from '../components/Card';
-import Button from '../components/Button';
-import OptionMenu from '../components/OptionMenu';
-import OptionMenuItem from '../components/OptionMenu/OptionMenuItem';
 import { mdiPlus, mdiTestTube } from '@mdi/js';
 import '../mainpage-style.scss';
 import Icon from '@mdi/react';
-import Grid from '../components/Grid';
+import Button from '@tc/Button';
+import Grid from '@tc/Grid';
+import Header from '@tc/Header';
+import { Card } from './Card.stories';
+import { OptionMenu } from './OptionMenu.stories';
+import { OptionMenuItem } from './OptionMenuItem.stories';
 
 const ExampleEnvironment = (props: { ambient: boolean; pageTitle: string }) => {
   const [isMaximized, setMaximized] = useState(false);

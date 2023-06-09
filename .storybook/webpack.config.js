@@ -9,6 +9,7 @@ module.exports = ({ config }) => {
   });
 
   config.resolve.alias['assets'] = path.resolve(__dirname, '../src/assets');
+  config.resolve.alias['@tc'] = path.resolve(__dirname, '../src/components');
 
   return config;
 };

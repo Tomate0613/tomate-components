@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import Dropdown from '../components/Dropdown';
+import Dropdown from '@tc/Dropdown';
 
 export default {
   title: 'Components/Dropdown',

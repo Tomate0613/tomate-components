@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react';
-import OptionMenu from '../components/OptionMenu';
-import OptionMenuItem from '../components/OptionMenu/OptionMenuItem';
 import { mdiTestTube } from '@mdi/js';
+import OptionMenu from '@tc/OptionMenu';
+import { OptionMenuItem } from './OptionMenuItem.stories';
 
 export default {
   title: 'Components/OptionMenu',

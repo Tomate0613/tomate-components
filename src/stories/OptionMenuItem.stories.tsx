@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
-import OptionMenuItem from '../components/OptionMenu/OptionMenuItem';
 import { mdiTestTube } from '@mdi/js';
+import OptionMenuItem from '@tc/OptionMenu/OptionMenuItem';
 
 export default {
   title: 'Components/OptionMenuItem',
